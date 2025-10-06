@@ -10,9 +10,9 @@ EP0 IN
 InStage Count=10  left cnt=2
 EP0 OUT
 Setup len=0 Recipient=0 Type=0 Dir=0
-SUP  SET_ADDRESS addr=26
+SUP  SET_ADDRESS addr=7
 EP0 IN
-USB Set addres 26
+USB Set addres 7
 Setup len=18 Recipient=0 Type=0 Dir=1
 SUP  GET_DESCRIPTOR
 TO DEVICE  sp.wValue.WB.H=1
@@ -44,15 +44,23 @@ CONFIGURATION_DESCRIPTOR
 ep.count=32  len=32
 InStage Count=32  left cnt=24
 EP0 IN
-Int=24  left cnt=16
+InStage Count=24  left cnt=16
 EP0 IN
-InStag sp.wValue.WB.H=3
-STRING_DESCRIPTOR uhd->sp.wValue.WB.L=0
-ep.count=255  len=4
-InStage Count=4  left cnt=0
+InStage Count=16  left cnt=8
+EP0 IN
+InStage Count=8  left cnt=0
 EP0 IN
 InStage Count=0  left cnt=0
 EP0 OUT
+Setup len=255 Recipient=0 Type=0 Dir=1
+SUP  GET_DESCRIPTOR
+TO DEVICE  sp.wValue.WB.H=3
+STRING_DESCRIPTOR uhd->sp.wValue.WB.L=0
+ep.count=255  len=4
+InStage Count=4  left cnt=0
+EP0 OUT
+EP0 IN
+InStage Count=0  left cnt=0
 Setup len=255 Recipient=0 Type=0 Dir=1
 SUP  GET_DESCRIPTOR
 TO DEVICE  sp.wValue.WB.H=3
@@ -62,7 +70,8 @@ InStage Count=36  left cnt=28
 EP0 IN
 InStage Count=28  left cnt=20
 EP0 IN
-InStage CounEP0 IN
+InStage Count=20  left cnt=12
+EP0 IN
 InStage Count=12  left cnt=4
 EP0 IN
 InStage Count=4  left cnt=0
@@ -81,9 +90,9 @@ EP0 IN
 InStage Count=12  left cnt=4
 EP0 IN
 InStage Count=4  left cnt=0
+EP0 OUT
 EP0 IN
 InStage Count=0  left cnt=0
-EP0 OUT
 Setup len=255 Recipient=0 Type=0 Dir=1
 SUP  GET_DESCRIPTOR
 TO DEVICE  sp.wValue.WB.H=3
@@ -96,7 +105,11 @@ EP0 IN
 InStage Count=10  left cnt=2
 EP0 IN
 InStage Count=2  left cnt=0
-EP0 INN
+EP0 IN
+InStage Count=0  left cnt=0
+EP0 OUT
+Setup len=0 Recipient=0 Type=0 Dir=0
+SUP  SET_CONFIGURATION
 conf_num=1
 USB_CONFIGURATION_DESCRIPTOR_TYPE
 USB_INTERFACE_DESCRIPTOR_TYPE
@@ -105,4 +118,3 @@ USB_ENDPOINT_DESCRIPTOR_TYPE epn=81
  USB_SetConfiguration  OUT  uhd->ConfigOK=1
 EP0 IN
 InStage Count=0  left cnt=0
-Разрыв соединения с портом
