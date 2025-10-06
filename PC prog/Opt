@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CONFIG>
+  <TApplication>
+    <Form1>
+      <ValueListEditorNum1_Strings Count="2" Item0="VID=0x0483" Item1="PID=0x5704"/>
+    </Form1>
+  </TApplication>
+</CONFIG>

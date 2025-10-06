@@ -1,0 +1,160 @@
+object Form1: TForm1
+  Left = 229
+  Height = 586
+  Top = 79
+  Width = 719
+  ActiveControl = ValueListEditorNum1
+  Caption = 'Form1'
+  ClientHeight = 586
+  ClientWidth = 719
+  OnClose = FormClose
+  OnCreate = FormCreate
+  SessionProperties = 'ValueListEditorNum1.Strings'
+  LCLVersion = '3.4.0.0'
+  object ValueListEditorNum1: TValueListEditorNum
+    Left = 0
+    Height = 52
+    Top = 8
+    Width = 216
+    FixedCols = 0
+    Flat = True
+    RowCount = 2
+    TabOrder = 6
+    DisplayOptions = [doAutoColResize, doKeyColFixed]
+    Strings.Strings = (
+      'VID=0'
+      'PID=0'
+    )
+    TitleCaptions.Strings = (
+      'Параметр'
+      'Значение'
+    )
+    ColWidths = (
+      64
+      151
+    )
+  end
+  object Button1: TButton
+    Left = 0
+    Height = 25
+    Top = 97
+    Width = 170
+    Caption = 'Открыть'
+    TabOrder = 0
+    OnClick = Button1Click
+  end
+  object Memo1: TMemo
+    Left = 223
+    Height = 196
+    Top = 8
+    Width = 493
+    Anchors = [akTop, akLeft, akRight]
+    Lines.Strings = (
+      'Можно посмотреть как часто принимаются пакеты от'
+      'USB устройства с помощью программы Logger (цветные временные диаграммы)'
+      ''
+      'USB устройство передаёт данные пакетами по 64 байта, передаётся пила, которая'
+      'постепенно поднимается вверх.'
+      ''
+      'USB устройство принимает пакеты по 64 байта, из которых полезные первые 4 байта,'
+      'которые означают паузу с которой USB устройство будет отправлять данные,'
+      'пауза задаётся в миллисекундах, нулевое значение означает, что пакеты буду'
+      'отправлять с максимально возможной скоростью.'
+    )
+    ScrollBars = ssAutoBoth
+    TabOrder = 5
+    WordWrap = False
+  end
+  object Button2: TButton
+    Left = 0
+    Height = 25
+    Top = 152
+    Width = 170
+    Caption = 'Закрыть'
+    TabOrder = 1
+    OnClick = Button2Click
+  end
+  object Button3: TButton
+    Left = 0
+    Height = 25
+    Top = 125
+    Width = 170
+    Caption = 'Записать'
+    TabOrder = 2
+    OnClick = Button3Click
+  end
+  object Button4: TButton
+    Left = 0
+    Height = 25
+    Top = 63
+    Width = 170
+    Caption = 'Список USB устройств'
+    TabOrder = 3
+    OnClick = Button4Click
+  end
+  object Button5: TButton
+    Left = 0
+    Height = 25
+    Top = 179
+    Width = 170
+    Caption = 'Очистка'
+    TabOrder = 4
+    OnClick = Button5Click
+  end
+  object lblInByteCount: TLabel
+    Left = 0
+    Height = 16
+    Top = 208
+    Width = 98
+    Caption = 'Пришло байт: 0'
+  end
+  object glsch1: TGLSimpleChartF
+    Left = 0
+    Height = 354
+    Top = 232
+    Width = 716
+    Anchors = [akTop, akLeft, akRight, akBottom]
+    ClearColor = -1
+    UseDefaultPaint = False
+    OnAfterGLInit = glsch1AfterGLInit
+    OnBeforeGLDeinit = glsch1BeforeGLDeinit
+    AutoMoveZoomAsix = True
+    AxisFontBold = False
+    AxisFontSize = 0.0700000002980232
+    ButtonForMove = [RightMouseBotton]
+    DirectionX = Dir_Left_Right
+    DirectionY = Dir_Down_Up
+    GridPeriod = 8
+    ShowVerticalAsix = True
+    ShowHorizontalAsix = True
+    SyncEnable = False
+    TextOnAxis = False
+    UseScaleFrame = True
+    InvertMouseZoom = False
+  end
+  object ednPause: TEditNum
+    Left = 172
+    Height = 28
+    Hint = 'Пауза для передачи пакетов [мс]'
+    Top = 125
+    Width = 44
+    BadColor = clRed
+    ParentShowHint = False
+    ShowHint = True
+    TabOrder = 8
+    Text = '100'
+  end
+  object XMLPropStorage1: TXMLPropStorage
+    StoredValues = <>
+    FileName = 'Opt'
+    Left = 448
+    Top = 64
+  end
+  object tmCheckUpdate: TTimer
+    Enabled = False
+    Interval = 20
+    OnTimer = tmCheckUpdateTimer
+    Left = 270
+    Top = 86
+  end
+end
